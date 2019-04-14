@@ -31,7 +31,13 @@
  * @return {RegExp}
  */
 function getRegexForGuid() {
+   // var regex1 = RegExp('(\{){0,1}[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}(\}){0,1}');
+   // let res = regex1.test();
+   // return res;
+   // expected output: true
    throw new Error('Not implemented');
+
+ 
 }
 
 

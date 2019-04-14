@@ -37,7 +37,7 @@ function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 function parseDataFromIso8601(value) {
-   throw new Error('Not implemented');
+   return Date.parse(value)
 }
 
 
@@ -55,9 +55,10 @@ function parseDataFromIso8601(value) {
  *    Date(2012,1,1)    => true
  *    Date(2015,1,1)    => false
  */
-function isLeapYear(date) {
-   throw new Error('Not implemented');
-}
+function isLeapYear(myDate) {
+   let year = myDate.getFullYear();
+ 	return (year & 3) == 0 && ((year % 25) != 0 || (year & 15) == 0);
+   }
 
 
 /**
@@ -76,7 +77,38 @@ function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 function timeSpanToString(startDate, endDate) {
-   throw new Error('Not implemented');
+//   return endDate - startDate;
+const startDate = new Date(2000,1,1,10,0,0)
+const endDate = 	new Date(2000,1,1,15,20,10,453)
+var diff = endDate.getTime() - startDate.getTime();
+
+var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+diff -=  days * (1000 * 60 * 60 * 24);
+
+var hours = Math.floor(diff / (1000 * 60 * 60));
+diff -= hours * (1000 * 60 * 60);
+
+var mins = Math.floor(diff / (1000 * 60));
+diff -= mins * (1000 * 60);
+
+var seconds = Math.floor(diff / (1000));
+diff -= seconds * (1000);
+
+var milliseconds = Math.floor(diff / (1));
+diff -= milliseconds * (1);
+
+const diffDate = new Date(2000,1,1,hours,mins,seconds,milliseconds)
+
+console.log (diff)
+console.log (days)
+console.log (hours)
+console.log (mins)
+console.log (seconds)
+console.log (milliseconds)
+console.log (diffDate)
+console.log (diffDateStr)
+
+
 }
 
 
